@@ -1,0 +1,191 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff0844, #ffb199);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Falling Roses */
+.rose-fall {
+  position: fixed;
+  top: -10%;
+  font-size: 25px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(120vh); opacity: 0; }
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 25px;
+  width: 92%;
+  max-width: 430px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.photos img {
+  width: 350px;
+  height: 350px;
+  object-fit:cover ;
+  border-radius: 5%;
+  border: 3px solid #ff4d6d;
+}
+
+.heart {
+  font-size: 48px;
+}
+
+.rose {
+  font-size: 65px;
+  animation: float 2s infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+h1 {
+  color: #e60026;
+  margin: 10px 0;
+}
+
+.names {
+  font-size: 28px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 12px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #e60026;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #b8001c;
+}
+
+#loveMsg {
+  margin-top: 15px;
+  font-style: italic;
+  color: #777;
+}
+
+.share {
+  background: #25D366;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <div class="card">
+
+    <!-- PHOTOS SECTION -->
+    <div class="photos">
+      <img src="Myphoto.jpg" alt="My Photo">
+      <div class="heart">❤️</div>
+      <img src="Theirphoto.jpg" alt="Their Photo">
+    </div>
+
+    <div class="rose">🌹</div>
+    <h1>Happy Rose Day</h1>
+
+    <!-- ✍️ EDIT NAMES HERE -->
+    <div class="names">
+      From <b>MAAHI</b> 💕 <br> To <b>MY HAAPY</b>
+    </div>
+
+    <p>
+      Two hearts, one rose, and endless feelings 🌹  
+      This day is special because **you** exist in my life 💖
+    </p>
+
+    <button onclick="showLove()">Tap for Surprise 💘</button>
+    <div id="loveMsg"></div>
+
+    <button class="share" onclick="shareWhatsApp()">Share on WhatsApp 📲</button>
+  </div>
+</div>
+
+<script>
+function showLove() {
+  document.getElementById("loveMsg").innerHTML =
+    "Every rose reminds me of you 🌹<br>You make my world beautiful 💖";
+}
+
+function shareWhatsApp() {
+  const text = "🌹 Happy Rose Day 🌹\nA special rose & surprise for you 💖";
+  const url = window.location.href;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`);
+}
+
+/* Falling Roses */
+for (let i = 0; i < 25; i++) {
+  let rose = document.createElement("div");
+  rose.className = "rose-fall";
+  rose.innerHTML = "🌹";
+  rose.style.left = Math.random() * 100 + "vw";
+  rose.style.animationDuration = (3 + Math.random() * 5) + "s";
+  rose.style.fontSize = (18 + Math.random() * 20) + "px";
+  document.body.appendChild(rose);
+}
+</script>
+
+</body>
+</html>
